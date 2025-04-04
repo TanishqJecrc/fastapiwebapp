@@ -14,7 +14,7 @@ pipeline {
 
         stage('Setup Python Virtual Environment') {
             steps {
-                bat "cmd /c python --version"
+                bat 'cmd /c "C:\\Users\\tanis\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" python --version'
                 bat "cmd /c pip install -r requirements.txt"
             }
         }
