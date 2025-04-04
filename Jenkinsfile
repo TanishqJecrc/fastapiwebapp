@@ -4,7 +4,7 @@ pipeline {
         AZURE_CREDENTIALS_ID = 'azure-service-principal'
         RESOURCE_GROUP = 'rg-jenkins'
         APP_SERVICE_NAME = 'linapptanishq'
-        PATH = "C:/path/to/dir/containing/python.exe;$PATH"
+        PATH = "C:/Users/tanis/AppData/Local/Programs/Python/Python313/python.exe;$PATH"
     }
     stages {
         stage('Checkout Code') {
