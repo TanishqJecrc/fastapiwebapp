@@ -14,13 +14,16 @@ pipeline {
 
         stage('Setup Python Virtual Environment') {
             steps {
+                bat "python --version"
+                bat "python -m venv venv"
+                bat "call venv\\Scripts\\activate"
                 bat "pip install -r requirements.txt"
             }
         }
 
         stage('Package FastAPI App') {
             steps {
-                bat "powershell Compress-Archive -Path ./app.py, ./requirements.txt -DestinationPath ./deploy.zip -Force"
+                bat "powershell Compress-Archive -Path ./app.py, ./venv, ./requirements.txt -DestinationPath ./deploy.zip -Force"
             }
         }
 
