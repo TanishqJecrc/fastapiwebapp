@@ -14,7 +14,7 @@ pipeline {
 
         stage('Setup Python Virtual Environment') {
             steps {
-                bat "python --version"
+                bat "cmd.exe python --version"
                 bat "python -m venv venv"
                 bat "call venv\\Scripts\\activate"
                 bat "pip install -r requirements.txt"
