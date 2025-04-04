@@ -26,6 +26,13 @@ pipeline {
             }
         }
 
+        stage('Check ZIP Contents') {
+            steps {
+                bat 'powershell Expand-Archive -Path deploy.zip -DestinationPath temp -Force'
+                bat 'powershell Get-ChildItem -Path temp -Recurse | ForEach-Object { Write-Host $_.FullName }'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: AZURE_CREDENTIALS_ID)]) {
